@@ -34,3 +34,9 @@ describe('pigLatin', function() {
         expect(pigLatin("hello yellow world")).to.equal("ellohay ellowyay orldway");
     });
 });
+
+describe('pigLatin', function() {
+    it("handles end of sentence punctuation and keeps it at the end", function() {
+        expect(pigLatin("coding is great.")).to.equal("odingcay isay eatgray.");
+    });
+});

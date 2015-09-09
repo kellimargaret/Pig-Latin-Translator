@@ -2,9 +2,19 @@
 var pigLatin = function(message) {
 
     var result = [];
+    var punctuation = "";
 
     var lowerCaseMessage = message.toLowerCase();
+    if (lowerCaseMessage.match(/([!?.])/g)) {
+
+        punctuation = lowerCaseMessage.slice(-1);
+        lowerCaseMessage = lowerCaseMessage.slice(0, -1);
+
+    }
+
     var messageArr = lowerCaseMessage.split(" ");
+
+
 
     messageArr.forEach(function(word) {
         var split = word.split("");
@@ -22,15 +32,19 @@ var pigLatin = function(message) {
                 if ((split[0] === "q") && (split[1] === "u")) {
                     split.push(split.shift());
                 }
-                
+
                 split.push(split.shift());
             }
 
         split.push('a', 'y');
         var wholeWord = split.join("");
         result.push(wholeWord);
+
     });
-    return result.join(" ");
+
+    // result.push(punctuation);
+    return result.join(" ") + punctuation;
+
 }
 
 //jQuery
