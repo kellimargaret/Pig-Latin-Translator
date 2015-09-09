@@ -28,3 +28,9 @@ describe('pigLatin', function() {
         expect(pigLatin("sync")).to.equal("yncsay");
     });
 });
+
+describe('pigLatin', function() {
+    it("handles words in sentences individually", function() {
+        expect(pigLatin("hello yellow world")).to.equal("ellohay ellowyay orldway");
+    });
+});
