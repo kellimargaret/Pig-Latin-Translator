@@ -16,3 +16,15 @@ describe('pigLatin', function() {
         expect(pigLatin("squeal")).to.equal("ealsquay");
     });
 });
+
+describe('pigLatin', function() {
+    it("treats 'y' as a consonant when it's the first letter", function() {
+        expect(pigLatin("yellow")).to.equal("ellowyay");
+    });
+});
+
+describe('pigLatin', function() {
+    it("treats 'y' as a vowel when it is not first letter", function() {
+        expect(pigLatin("sync")).to.equal("yncsay");
+    });
+});
