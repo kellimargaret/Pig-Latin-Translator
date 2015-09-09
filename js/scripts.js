@@ -1,7 +1,11 @@
+//JavaScript
 var pigLatin = function(message) {
+
     var result = [];
-    var messageArr = message.split(" ");
-    console.log(messageArr);
+
+    var lowerCaseMessage = message.toLowerCase();
+    var messageArr = lowerCaseMessage.split(" ");
+
     messageArr.forEach(function(word) {
         var split = word.split("");
             if (split[0] === "y") {
@@ -18,7 +22,7 @@ var pigLatin = function(message) {
                 if ((split[0] === "q") && (split[1] === "u")) {
                     split.push(split.shift());
                 }
-
+                
                 split.push(split.shift());
             }
 
@@ -28,3 +32,17 @@ var pigLatin = function(message) {
     });
     return result.join(" ");
 }
+
+//jQuery
+$(document).ready(function() {
+    $("form#pig").submit(function(event) {
+        var message = $("input#message").val();
+
+        var result = pigLatin(message);
+
+        $(".result-message").text(result);
+
+        $("#result").show();
+        event.preventDefault();
+    });
+});
